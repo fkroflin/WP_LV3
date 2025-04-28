@@ -71,9 +71,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (movie && !cart.some(m => m.filmtv_id === movieId)) {
                     cart.push(movie);
                     updateCart();
-                    alert(`${movie.title} dodan u košaricu!`);
+                    showCustomAlert(`${movie.title} dodan u košaricu!`);
                 } else if (cart.some(m => m.filmtv_id === movieId)) {
-                    alert(`${movie.title} je već u košarici!`);
+                    showCustomAlert(`${movie.title} je već u košarici!`);
                 }
             });
         });
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const movieId = button.getAttribute('data-id');
                 cart = cart.filter(m => m.filmtv_id !== movieId);
                 updateCart();
-                alert('Film uklonjen iz košarice!');
+                showCustomAlert('Film uklonjen iz košarice!');
             });
         });
     }
@@ -111,14 +111,25 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = 'none';
     });
 
+    // Function to show a custom alert
+    function showCustomAlert(message) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'custom-alert';
+        alertDiv.innerText = message;
+        document.body.appendChild(alertDiv);
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 3000);
+    }
+
     confirmCart.addEventListener('click', () => {
-        console.log('Confirm cart clicked, cart length:', cart.length); // Debugging
+        console.log('Confirm cart clicked, cart length:', cart.length);
         if (cart.length === 0) {
-            alert('Košarica je prazna!');
+            showCustomAlert('Košarica je prazna!');
         } else {
             const message = `Uspješno ste dodali ${cart.length} filma u svoju košaricu za vikend maraton!`;
-            alert(message);
-            console.log('Confirmation message:', message); // Debugging
+            showCustomAlert(message);
+            console.log('Confirmation message:', message);
             cart = [];
             updateCart();
             modal.style.display = 'none';
@@ -142,13 +153,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     fetch('/public/filmtv_movies.csv')
-        .then(res => res.text())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+            }
+            return res.text();
+        })
         .then(csv => {
             Papa.parse(csv, {
                 header: true,
                 skipEmptyLines: true,
                 complete: function(results) {
                     allMovies = results.data;
+                    console.log('Parsed movies:', allMovies.length);
                     prikaziTablicu(allMovies);
 
                     filterButton.addEventListener('click', () => {
@@ -167,9 +184,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     });
                 },
                 error: function(error) {
-                    console.error('Greška kod parsiranja CSV datoteke:', error);
+                    console.error('PapaParse error:', error);
                 }
             });
         })
-        .catch(error => console.error('Greška kod dohvaćanja CSV datoteke:', error));
+        .catch(error => {
+            console.error('Fetch CSV error:', error);
+            showCustomAlert('Greška pri dohvaćanju CSV datoteke. Provjerite putanju ili dostupnost datoteke.');
+        });
+
 });
