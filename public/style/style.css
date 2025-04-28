@@ -259,6 +259,20 @@ button:hover {
     background-color: #c82333;
 }
 
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .data-container, .analysis-flex {
