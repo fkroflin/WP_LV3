@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    console.log('script.js loaded successfully');
     let allMovies = [];
     let cart = [];
     const tbody = document.querySelector('table tbody');
@@ -111,7 +112,6 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = 'none';
     });
 
-    // Function to show a custom alert
     function showCustomAlert(message) {
         const alertDiv = document.createElement('div');
         alertDiv.className = 'custom-alert';
@@ -192,5 +192,4 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Fetch CSV error:', error);
             showCustomAlert('Greška pri dohvaćanju CSV datoteke. Provjerite putanju ili dostupnost datoteke.');
         });
-
 });
