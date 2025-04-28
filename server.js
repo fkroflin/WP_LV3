@@ -1,13 +1,13 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // Dodaj CORS
+// Poslužuje sve statične datoteke iz mape public
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Osnovni endpoint
 app.get('/', (req, res) => {
   res.send('Pozdrav sa Railway servera!');
 });
