@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
         genreFilterContainer.appendChild(label);
     });
 
-    fetch('/filmtv_movies.csv')
+    fetch('filmtv_movies.csv')
         .then(res => {
             if (!res.ok) {
                 throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
