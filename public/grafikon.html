@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafikon Filmova</title>
+    <link rel="stylesheet" href="./style/grafikon_style.css">
+</head>
+<body>
+
+    <header>
+        <h2 style="text-align:center">Statistika Filmova</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="grafikon.html">Grafikon</a></li>
+                <li><a href="slike.html">Galerija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="grafikon-container">
+        <h3>Distribucija Žanrova Filmova</h3>
+        <div class="pie-chart">
+            <div class="slice animirani" style="--percentage: 25;"></div>
+            <div class="slice komedija" style="--percentage: 20;"></div>
+            <div class="slice akcija" style="--percentage: 30;"></div>
+            <div class="slice horor" style="--percentage: 15;"></div>
+            <div class="slice drama" style="--percentage: 10;"></div>
+        </div>
+        <div class="legend">
+            <span class="animirani">Animirani (25%)</span>
+            <span class="komedija">Komedija (20%)</span>
+            <span class="akcija">Akcija (30%)</span>
+            <span class="horor">Horor (15%)</span>
+            <span class="drama">Drama (10%)</span>
+        </div>
+    </section>
+
+    <section class="grafikon-container">
+        <h3>Gledanost Filmova po Žanrovima</h3>
+        <dl>
+            <dd class="percentage percentage-14-6"><span class="text">Animirani: 14.6%</span></dd>
+            <dd class="percentage percentage-18-5"><span class="text">Komedija: 18.5%</span></dd>
+            <dd class="percentage percentage-22-3"><span class="text">Akcija: 22.3%</span></dd>
+            <dd class="percentage percentage-8-9"><span class="text">Horor: 8.9%</span></dd>
+            <dd class="percentage percentage-35-7"><span class="text">Drama: 35.7%</span></dd>
+        </dl>        
+    </section>
+
+</body>
+</html>

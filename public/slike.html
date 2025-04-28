@@ -1,0 +1,74 @@
+<!-- public/slike.html -->
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbox Galerija bez JavaScripta</title>
+    <link rel="stylesheet" href="./style/slike_style.css">
+</head>
+<body>
+
+    <header>
+        <h2 style="text-align:center">Galerija slika</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="grafikon.html">Grafikon</a></li>
+                <li><a href="slike.html">Galerija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="galerija"> 
+        <figure class="galerija_slika">
+            <a href="#img1">
+                <img src="https://unsplash.it/300/200?random=1" alt="Slika 1">
+            </a>
+            <figcaption>Slika 1</figcaption>
+        </figure>
+
+        <figure class="galerija_slika">
+            <a href="#img2">
+                <img src="https://unsplash.it/300/200?random=2" alt="Slika 2">
+            </a>
+            <figcaption>Slika 2</figcaption>
+        </figure>
+
+        <figure class="galerija_slika">
+            <a href="#img3">
+                <img src="https://unsplash.it/300/200?random=3" alt="Slika 3">
+            </a>
+            <figcaption>Slika 3</figcaption>
+        </figure>
+
+        <figure class="galerija_slika">
+            <a href="#img4">
+                <img src="https://unsplash.it/300/200?random=4" alt="Slika 4">
+            </a>
+            <figcaption>Slika 4</figcaption>
+        </figure>
+    </section>
+
+    <div id="img1" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img src="https://unsplash.it/900/?random=1" alt="Slika 1">
+    </div>
+
+    <div id="img2" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img src="https://unsplash.it/900/?random=2" alt="Slika 2">
+    </div>
+
+    <div id="img3" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img src="https://unsplash.it/900/?random=3" alt="Slika 3">
+    </div>
+
+    <div id="img4" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img src="https://unsplash.it/900/?random=4" alt="Slika 4">
+    </div>
+
+</body>
+</html>

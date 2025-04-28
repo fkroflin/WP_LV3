@@ -1,0 +1,14 @@
+{
+  "name": "express-railway",
+  "version": "1.0.0",
+  "description": "Express aplikacija za Railway deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
